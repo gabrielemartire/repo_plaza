@@ -23,7 +23,6 @@ Things you may want to cover:
 
 * ...
 
-
 0. _23/08/25_ rails new repo_plaza --database=postgresql --css=tailwind
 0. mi serve il db e preferisco usare docker per il locale
 quindi creo il docker compose (localhost)

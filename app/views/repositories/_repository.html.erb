@@ -1,0 +1,26 @@
+<div id="<%= dom_id repository %>" class="w-full sm:w-auto my-5 space-y-5">
+  <div>
+    <strong class="block font-medium mb-1">User:</strong>
+    <%= repository.user_id %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= repository.name %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Full name:</strong>
+    <%= repository.full_name %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Url:</strong>
+    <%= repository.url %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Last commit at:</strong>
+    <%= repository.last_commit_at %>
+  </div>
+  <div>
+    <strong class="block font-medium mb-1">Archived:</strong>
+    <%= repository.archived? ? "Yes" : "No" %>
+  </div>
+</div>

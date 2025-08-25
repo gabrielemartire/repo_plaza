@@ -1,0 +1,48 @@
+<div>
+  <!-- Hero Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+        <span class="block">Keep your</span>
+        <span class="block text-blue-600">repositories alive</span>
+      </h1>
+      <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-500">
+        Track your favorite GitHub repositories and discover abandoned projects that need maintainers.
+      </p>
+      <div class="mt-10">
+        <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors">
+          🐙 Login with GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">U</div>
+        <h3 class="text-xl font-semibold mb-2">Users</h3>
+        <p class="text-gray-600 mb-4">Monitor commits, issues, and repository health</p>
+        <%= link_to users_path, class: "inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" do %>
+          View Users
+        <% end %>
+      </div>
+      
+      <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">R</div>
+        <h3 class="text-xl font-semibold mb-2">Repositories</h3>
+        <p class="text-gray-600 mb-4">Monitor commits, issues, and repository health</p>
+        <%= link_to repositories_path, class: "inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" do %>
+          View Repos
+        <% end %>
+      </div>
+      
+      <div class="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div class="text-4xl mb-4">S</div>
+        <h3 class="text-xl font-semibold mb-2">Settings</h3>
+      <p class="text-gray-600 mb-4">Help keep open source projects alive</p>
+      </div>
+    </div>
+  </div>
+</div>

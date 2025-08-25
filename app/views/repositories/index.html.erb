@@ -1,13 +1,15 @@
 <% content_for :title, "Repositories" %>
-
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center flex-col">
     <h1 class="font-bold text-4xl">Repositories</h1>
-    <%= link_to "New repository", new_repository_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    <div class="w-full flex space-x-2">
+      <%= link_to "Home", root_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+      <%= link_to "New repository", new_repository_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+    </div>
   </div>
 
   <div id="repositories" class="min-w-full divide-y divide-gray-200 space-y-5">

@@ -45,6 +45,9 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Devise 25 agosto 25
+  gem 'devise'
 end
 
 group :development do

@@ -10,20 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_08_23_155855) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_26_052929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "repositories", force: :cascade do |t|
-    t.string "name"
-    t.string "full_name"
+    t.string "title"
+    t.string "description"
     t.string "url"
     t.datetime "last_commit_at"
     t.boolean "archived"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "repositories_users", id: false, force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.index ["user_id"], name: "index_repositories_on_user_id"
+    t.bigint "repository_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,7 +39,24 @@ ActiveRecord::Schema[7.2].define(version: 2025_08_23_155855) do
     t.datetime "token_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "repositories", "users"
+  create_table "waitings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "status"
+    t.string "email"
+    t.string "name"
+    t.string "discovered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_waitings_on_user_id"
+  end
+
+  add_foreign_key "waitings", "users"
 end

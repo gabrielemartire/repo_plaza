@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :waitings
+  devise_for :users
 
   root 'home#index'
 

@@ -12,33 +12,18 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:user_id].none?, "border-red-400 focus:outline-red-600": repository.errors[:user_id].any?}] %>
+    <%= form.label :title %>
+    <%= form.text_field :title, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:title].none?, "border-red-400 focus:outline-red-600": repository.errors[:title].any?}] %>
   </div>
 
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:name].none?, "border-red-400 focus:outline-red-600": repository.errors[:name].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :full_name %>
-    <%= form.text_field :full_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:full_name].none?, "border-red-400 focus:outline-red-600": repository.errors[:full_name].any?}] %>
+    <%= form.label :description %>
+    <%= form.text_field :description, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:description].none?, "border-red-400 focus:outline-red-600": repository.errors[:description].any?}] %>
   </div>
 
   <div class="my-5">
     <%= form.label :url %>
     <%= form.text_field :url, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:url].none?, "border-red-400 focus:outline-red-600": repository.errors[:url].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :last_commit_at %>
-    <%= form.datetime_field :last_commit_at, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": repository.errors[:last_commit_at].none?, "border-red-400 focus:outline-red-600": repository.errors[:last_commit_at].any?}] %>
-  </div>
-
-  <div class="my-5 flex items-center gap-2">
-    <%= form.label :archived %>
-    <%= form.check_box :archived, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": repository.errors[:archived].none?, "border-red-400 focus:outline-red-600": repository.errors[:archived].any?}] %>
   </div>
 
   <div class="inline">

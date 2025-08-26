@@ -1,5 +1,6 @@
 class RepositoriesController < ApplicationController
   before_action :set_repository, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /repositories or /repositories.json
   def index
@@ -65,6 +66,6 @@ class RepositoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def repository_params
-      params.require(:repository).permit(:user_id, :name, :full_name, :url, :last_commit_at, :archived)
+      params.require(:repository).permit(:title, :description, :url)
     end
 end

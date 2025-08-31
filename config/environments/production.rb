@@ -20,6 +20,10 @@ Rails.application.configure do
   # key such as config/credentials/production.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
+  config.secret_key_base = ENV['SECRET_KEY_BASE'] || ENV['SECRET_KEY_BASE_DUMMY'] || 'fallback_for_precompilation'
+
+  config.require_master_key = false
+
   # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
   # config.public_file_server.enabled = false
 
@@ -102,4 +106,7 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # Debug DATABASE_URL
+  puts "DATABASE_URL presente: #{ENV['DATABASE_URL'].present?}"
+  puts "DATABASE_URL valore: #{ENV['DATABASE_URL']&.first(50)}..." if ENV['DATABASE_URL']
 end

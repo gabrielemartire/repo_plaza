@@ -1,14 +1,14 @@
 <div>
   <!-- Hero Section -->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-16">
     <div class="text-center">
       <h1 class="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
-        <span class="block">Keep your</span>
-        <span class="block text-blue-600">repositories alive</span>
+        <span class="block text-blue-600">La piazza</span>
+        <span class="block">dei repository GitHub</span>
       </h1>
       <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-500">
-        Track your favorite GitHub repositories and discover abandoned projects that need maintainers.
-      </p>
+        Tieni traccia dei tuoi progetti preferiti, scopri quando vengono abbandonati e aiuta a mantenere vivo l'ecosistema open source. Una community per sviluppatori che si prendono cura dei progetti che usano.
+      </p>  
       <div class="mt-10">
         <a href="#" class="text-white px-3 py-3 rounded-lg text-lg font-medium" style="background-color: black;">
           <i class="fa-brands fa-github"></i>
@@ -22,27 +22,21 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid md:grid-cols-3 gap-8">
       <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-        <div class="text-4xl mb-4">U</div>
-        <h3 class="text-xl font-semibold mb-2">Users</h3>
-        <p class="text-gray-600 mb-4">Monitor commits, issues, and repository health</p>
-        <%= link_to users_path, class: "inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" do %>
-          View Users
-        <% end %>
+        <div class="text-4xl mb-4"><i class="fa-solid fa-code-branch"></i></div>
+        <h3 class="text-xl font-semibold mb-2">Monitora l'attività</h3>
+        <p class="text-gray-600 mb-4">Tieni traccia degli ultimi commit, release e attività sui repository che ti interessano. Ricevi notifiche quando un progetto diventa inattivo.</p>
       </div>
       
       <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-        <div class="text-4xl mb-4">R</div>
-        <h3 class="text-xl font-semibold mb-2">Repositories</h3>
-        <p class="text-gray-600 mb-4">Monitor commits, issues, and repository health</p>
-        <%= link_to repositories_path, class: "inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors" do %>
-          View Repos
-        <% end %>
+        <div class="text-4xl mb-4"><i class="fa-solid fa-people-carry-box"></i></div>
+        <h3 class="text-xl font-semibold mb-2">Community attiva</h3>
+        <p class="text-gray-600 mb-4">Connettiti con altri sviluppatori, condividi progetti interessanti e collabora per mantenere vivi i repository abbandonati.</p>
       </div>
       
       <div class="text-center p-6 bg-white rounded-lg shadow-sm">
-        <div class="text-4xl mb-4">S</div>
-        <h3 class="text-xl font-semibold mb-2">Settings</h3>
-      <p class="text-gray-600 mb-4">Help keep open source projects alive</p>
+        <div class="text-4xl mb-4"><i class="fa-regular fa-heart text-red"></i></div>
+        <h3 class="text-xl font-semibold mb-2">Salva l'open source</h3>
+      <p class="text-gray-600 mb-4">Quando un maintainer abbandona un progetto, la community può organizzarsi per continuare lo sviluppo e mantenere il progetto attivo.</p>
       </div>
     </div>
   </div>

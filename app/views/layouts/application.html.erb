@@ -29,10 +29,8 @@
           <!-- Logo -->
           <div class="flex items-center">
             <%= link_to root_path, class: "flex items-center space-x-2 text-xl font-semibold text-gray-900 hover:text-blue-600 transition-colors" do %>
-              <svg class="w-7 h-7 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"/>
-              </svg>
-              <span>RepoPlaza</span><i class="fa-regular fa-folder-closed"></i>
+              <i class="fa-regular fa-folder-closed"></i>
+              <span>RepoPlaza</span>
             <% end %>
           </div>
 
@@ -41,13 +39,10 @@
             <% if user_signed_in? %>
 
               <%= link_to "Repositories", repositories_path, 
-                    class: "px-3 py-2 rounded-md text-sm font-medium transition-colors #{'text-blue-600 bg-blue-50' if current_page?(repositories_path)} #{'text-gray-700 hover:text-blue-600' unless current_page?(repositories_path)}" %>
+                class: "px-3 py-2 rounded-md text-sm font-medium transition-colors #{'text-blue-600 bg-blue-50' if current_page?(repositories_path)} #{'text-gray-700 hover:text-blue-600' unless current_page?(repositories_path)}" %>
               
               <%= link_to "Users", users_path, 
-                    class: "px-3 py-2 rounded-md text-sm font-medium transition-colors #{'text-blue-600 bg-blue-50' if current_page?(users_path)} #{'text-gray-700 hover:text-blue-600' unless current_page?(users_path)}" %>
-
-              <%= link_to "Waiting", waitings_path, 
-                    class: "px-3 py-2 rounded-md text-sm font-medium transition-colors #{'text-blue-600 bg-blue-50' if current_page?(waitings_path)} #{'text-gray-700 hover:text-blue-600' unless current_page?(waitings_path)}" %>
+                class: "px-3 py-2 rounded-md text-sm font-medium transition-colors #{'text-blue-600 bg-blue-50' if current_page?(users_path)} #{'text-gray-700 hover:text-blue-600' unless current_page?(users_path)}" %>
 
             <% end %>
           </div>
@@ -55,7 +50,6 @@
           <!-- User Menu -->
           <div class="flex items-center space-x-4">
             <% if user_signed_in? %>
-              <!-- User Avatar -->
               <div class="hidden sm:flex items-center space-x-3">
                 <div class="flex items-center space-x-2">
                   <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
@@ -104,7 +98,7 @@
       </div>
     <% end %>
 
-    <main class="container mx-auto mt-28 px-5 flex">
+    <main class="container mx-auto mt-20 mb-12 px-5 flex">
       <%= yield %>
     </main>
   </body>

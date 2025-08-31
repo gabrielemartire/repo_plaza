@@ -106,4 +106,7 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  # Debug DATABASE_URL
+  puts "DATABASE_URL presente: #{ENV['DATABASE_URL'].present?}"
+  puts "DATABASE_URL valore: #{ENV['DATABASE_URL']&.first(50)}..." if ENV['DATABASE_URL']
 end

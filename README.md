@@ -80,9 +80,16 @@ rails generate migration AddDeviseToUsers encrypted_password:string reset_passwo
 
 _26 agosto 25_
 db-waiting - OK
-policy login - TO DO
 icons - OK 
+policy login - TO DO
 async job - TO DO
+
+per avviare il progetto bin/dev
+È il comando per usare il wrapper che fa partire più processi contemporaneamente usando Foreman
+processi specificati qui Procfile.dev
+infatti io ho:
+web: bin/rails server
+css: bin/rails tailwindcss:watch
 
 _27 agosto 25_
 SSO github
@@ -121,6 +128,7 @@ Poi installa:
 bashbundle install
 
 
+https://v0.app/chat/github-hub-KNzSyRHoB0o
 
 
 GIRO UTENTE NORMALE:

@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: repo_plaza_production
-  username: repo_plaza
-  password: <%= ENV["REPO_PLAZA_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

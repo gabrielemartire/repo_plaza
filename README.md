@@ -121,6 +121,7 @@ Poi installa:
 bashbundle install
 
 
+https://v0.app/chat/github-hub-KNzSyRHoB0o
 
 
 GIRO UTENTE NORMALE:

@@ -14,6 +14,6 @@
 #  "remember_created_at"]
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, stretches: 13
+  devise :database_authenticatable, :rememberable, :validatable, stretches: 13
   has_and_belongs_to_many :repositories
 end

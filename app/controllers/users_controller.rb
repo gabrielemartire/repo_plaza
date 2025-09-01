@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :ensure_admin        # Deve essere admin
 
   # GET /users or /users.json
   def index
@@ -66,6 +67,12 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:provider, :uid, :nickname, :name, :email, :token, :token_expires_at)
+      params.require(:user).permit(:provider, :nickname, :email, :password_confirmation, :password)
+    end
+
+    def ensure_admin
+      unless current_user&.nickname == 'admin'
+        redirect_to root_path, alert: "Accesso negato. Solo gli amministratori possono accedere a questa pagina."
+      end
     end
 end

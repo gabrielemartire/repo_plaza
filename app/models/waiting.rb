@@ -8,5 +8,4 @@
 #  "updated_at"]
 
 class Waiting < ApplicationRecord
-  belongs_to :user
 end

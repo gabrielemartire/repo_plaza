@@ -1,5 +1,6 @@
 
-<img width="500" alt="c5b5d917-0699-416a-ac02-a8dccb829f54" src="https://github.com/user-attachments/assets/ad4093c7-3ab0-4769-a76f-9632dde04191" />
+<img width="400" alt="c5b5d917-0699-416a-ac02-a8dccb829f54" src="https://github.com/user-attachments/assets/a756f627-663c-49cc-b4f3-890693c1ee8c" />
+
 
 # REPO|PLAZA
 

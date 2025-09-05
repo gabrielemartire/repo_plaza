@@ -1,134 +1,201 @@
-# README
+# 🏢 Repo Plaza
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Repo Plaza** è un sistema di monitoraggio delle dipendenze per progetti software, costruito con Ruby on Rails. L'applicazione permette agli sviluppatori di tracciare e monitorare le repository GitHub che utilizzano come dipendenze nei loro progetti, ricevendo notifiche su aggiornamenti, patch di sicurezza e breaking changes per mantenere i propri progetti sempre sicuri e aggiornati.
 
-http://repoplaza-production.up.railway.app/
+## 🚀 Demo Live
 
-https://v0-github-community-hub.vercel.app/
+- **Produzione**: [repoplaza-production.up.railway.app](http://repoplaza-production.up.railway.app/)
 
-Things you may want to cover:
+## 🎯 Il Problema delle Dipendenze
 
-* Ruby version
+- **Aggiornamenti Costanti**: Le librerie vengono aggiornate frequentemente
+- **Vulnerabilità di Sicurezza**: Patch critiche richiedono aggiornamenti immediati
+- **Breaking Changes**: Nuove versioni possono rompere il tuo codice esistente
+- **Progetti Multipli**: Difficile tracciare le stesse dipendenze su più progetti
+- **Mancanza di Tempo**: Impossibile controllare manualmente ogni repository
 
-* System dependencies
+**Repo Plaza** centralizza il monitoraggio di tutte le dipendenze dei tuoi progetti in un'unica dashboard intelligente.
 
-* Configuration
+## ✨ Funzionalità Principali
 
-* Database creation
+- **Autenticazione GitHub**: Login sicuro tramite OAuth GitHub
+- **Gestione Dipendenze**: Traccia le repository utilizzate come dipendenze
+- **Alert Automatici**: Notifiche per nuove versioni e patch di sicurezza
+- **Dashboard Centrale**: Stato di tutte le dipendenze in un colpo d'occhio
+- **Tracking Versioni**: Monitora release, tag e changelog
+- **Sicurezza**: Alert per vulnerabilità e CVE delle dipendenze
+- **Analisi Breaking Changes**: Identifica modifiche che potrebbero rompere il codice
+- **Automazione**: Controlli periodici automatici delle dipendenze
+- **Responsive**: Interfaccia moderna accessibile da qualsiasi device
 
-* Database initialization
+## 🛠️ Come Funziona
 
-* How to run the test suite
+1. **Collega il tuo GitHub**: Autenticati con il tuo account GitHub
+2. **Aggiungi Dipendenze**: Specifica quali repository vuoi monitorare (es. rails/rails, facebook/react)
+3. **Imposta Versioni**: Indica quale versione stai usando nei tuoi progetti
+4. **Ricevi Notifiche**: Repo Plaza ti avvisa quando ci sono:
+   - Nuove versioni disponibili
+   - Patch di sicurezza critiche
+   - ⚠Breaking changes in arrivo
+   - Aggiornamenti nei changelog
 
-* Services (job queues, cache servers, search engines, etc.)
+## 🔧 Tecnologie Utilizzate
 
-* Deployment instructions
+### Backend
+- **Ruby on Rails** - Framework web principale
+- **PostgreSQL** - Database per tracking dipendenze
+- **Devise** - Sistema di autenticazione
 
-* ...
+### Frontend
+- **Tailwind CSS** - Styling moderno e responsive
 
-0. _23 agosto 25_ rails new repo_plaza --database=postgresql --css=tailwind
-0. mi serve il db e preferisco usare docker per il locale
-quindi creo il docker compose (localhost)
-docker-compose up -d db TUTTO OK
-0. rails server - , rails uso la versione installata e non docker-compose
-0. rails db:create (questo passa attraverso il porting 5432 di docker compose al container del database)
-0. creiamo tabella user e la tabella repo (per "seguirle")
-quindi 
+## 📋 Prerequisiti
 
-rails g scaffold User provider:string uid:string nickname:string name:string email:string token:string token_expires_at:datetime
+- **Ruby** 3.0+
+- **Rails** 7.0+
+- **PostgreSQL** 13+
+- **Docker** (per sviluppo locale)
 
-rails g scaffold Repository user:references name:string full_name:string url:string last_commit_at:datetime archived:boolean
+## 🚀 Installazione
 
-- FATTO TUTTO OK
-0. ora vanno create le relazioni tra tabelle (nel models di users in questo caso) - FATTO
-0. e facendo rails s tutto funzionerà
+### 1. Clona il progetto
+```bash
+git clone https://github.com/gabrielemartire/repo_plaza.git
+cd repo_plaza
+```
 
+### 2. Setup dipendenze
+```bash
+bundle install
+```
 
+### 3. Database con Docker
+```bash
+# Avvia PostgreSQL in container
+docker-compose up -d db
 
-_25 agosto 25_
-*landing* con rails generate controller Home index
+# Setup database
+rails db:create
+rails db:migrate
+```
 
-*Devise*
+### 4. Configurazione GitHub
+Crea un file `.env` con le tue credenziali GitHub:
+```env
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+DATABASE_URL=postgresql://username:password@localhost:5432/repo_plaza_development
+```
 
-Depending on your application's configuration some manual setup may be required:
+### 5. Setup frontend
+```bash
+rails tailwindcss:install
+```
 
-  1. Ensure you have defined default url options in your environments files. Here
-     is an example of default_url_options appropriate for a development environment
-     in config/environments/development.rb:
-       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-     In production, :host should be set to the actual host of your application.
-     * Required for all applications. *
+### 6. Avvia l'applicazione
+```bash
+bin/dev
+```
 
-  2. Ensure you have defined root_url to *something* in your config/routes.rb.
-     For example:
-       root to: "home#index"
-     * Not required for API-only Applications *
-
-  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
-     For example:
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-     * Not required for API-only Applications *
-
-  4. You can copy Devise views (for customization) to your app by running:
-       rails g devise:views
-     * Not required *
-
-ho già un modello user quindi devo integrare con i campi che servono a devise
-rails generate migration AddDeviseToUsers encrypted_password:string reset_password_token:string reset_password_sent_at:datetime remember_created_at:datetime
-
-*tailwind* rails tailwindcss:install - OK
-
-
-
-_26 agosto 25_
-db-waiting - OK
-icons - OK 
-policy login - TO DO
-async job - TO DO
-
-per avviare il progetto bin/dev
-È il comando per usare il wrapper che fa partire più processi contemporaneamente usando Foreman
-processi specificati qui Procfile.dev
-infatti io ho:
-web: bin/rails server
-css: bin/rails tailwindcss:watch
-
-
-
-_3 SETT 25_
-devo personalizzare le viste di devise
-
-
-TO DO 
-
-Modifica il Gemfile aggiungendo:
-ruby# Authentication
-gem 'omniauth'
-gem 'omniauth-github'
-gem 'omniauth-rails_csrf_protection'
-
-email
-
-# GitHub API
-gem 'octokit'
-
-# Background jobs
-gem 'sidekiq'
-
-# UI helpers
-gem 'image_processing' # per avatar GitHub
-
-group :development, :test do
-  gem 'dotenv-rails' # per le variabili d'ambiente
-end
-Poi installa:
-bashbundle install
+Vai su `http://localhost:3000` per accedere all'app.
 
 
-https://v0.app/chat/github-hub-KNzSyRHoB0o
+### Sidekiq gestisce i controlli automatici delle dipendenze:
 
+```ruby
+# Job principali
+CheckDependencyUpdatesJob    # Controlla nuove versioni
+SecurityScanJob             # Scan vulnerabilità
+BreakingChangesAnalysisJob  # Analizza changelog per breaking changes
+NotificationJob             # Invia email/notifiche
+```
 
-GIRO UTENTE NORMALE:
-Login - unica pagina con le repo che segue 
+```bash
+# Avvia Sidekiq worker
+bundle exec sidekiq
+```
+
+## 📡 API Endpoints
+
+```bash
+# Dashboard e autenticazione
+GET  /                                    # Dashboard dipendenze
+POST /users/auth/github                   # Login GitHub
+GET  /users/auth/github/callback          # OAuth callback
+
+# Gestione dipendenze
+GET    /dependencies                      # Lista dipendenze monitorate
+POST   /dependencies                      # Aggiungi dipendenza
+PUT    /dependencies/:id                  # Aggiorna versione target
+DELETE /dependencies/:id                  # Rimuovi dal monitoraggio
+
+# Monitoraggio e alert
+GET /dependencies/:id/alerts              # Alert sicurezza
+GET /dependencies/:id/versions            # Storico versioni
+GET /dashboard/outdated                   # Dipendenze da aggiornare
+GET /dashboard/security                   # Alert sicurezza attivi
+```
+
+## 🛣️ Roadmap
+
+### ✅ Funzionalità Base
+- Interface Tailwind CSS
+- Deploy Railway
+
+### 🚧 In Sviluppo
+- [ ] Autenticazione GitHub
+- [ ] Tracking repository
+- [ ] Sistema notifiche email
+- [ ] Job automatici per controllo dipendenze
+- [ ] Dashboard alert sicurezza
+- [ ] Analisi breaking changes
+
+### 📋 Prossimi Passi
+- [ ] Support per múltipli package manager (npm, pip, composer)
+- [ ] Integrazione con dependency scanner (Dependabot, Snyk)
+- [ ] API REST per integrazioni esterne
+- [ ] Team collaboration features
+- [ ] Report analytics sulle dipendenze
+
+## 💡 Casi d'Uso
+
+### Per Sviluppatori Singoli
+- Monitora le gem Ruby nei tuoi progetti Rails
+- Traccia librerie JavaScript nei progetti frontend
+- Alert immediati per vulnerabilità di sicurezza
+
+### Per Team di Sviluppo
+- Dashboard condivisa delle dipendenze del team
+- Policy di aggiornamento coordinate
+- Reportistica sullo stato di sicurezza dei progetti
+
+### Per DevOps/Security
+- Audit trail degli aggiornamenti di sicurezza
+- Compliance reporting per vulnerabilità
+- Automazione degli update critici
+
+## 🤝 Contribuire
+
+1. Fork del progetto
+2. Branch feature (`git checkout -b feature/MonitoringNpm`)
+3. Commit (`git commit -m 'Add npm package monitoring'`)
+4. Push (`git push origin feature/MonitoringNpm`)
+5. Pull Request
+
+## 📄 Licenza
+
+Progetto sotto licenza MIT - vedi `LICENSE` per dettagli.
+
+## 👨‍💻 Autore
+
+**Gabriele Martire**
+- GitHub: [@gabrielemartire](https://github.com/gabrielemartire)
+- Portfolio: [gabrielemartire.github.io](https://gabrielemartire.github.io/)
+
+## 🙏 Ringraziamenti
+
+- Open source maintainers che rendono possibile questo ecosistema
+
+---
+
+**Repo Plaza** - Il tuo centro di controllo per le dipendenze dei progetti 🔧📦

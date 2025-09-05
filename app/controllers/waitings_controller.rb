@@ -1,5 +1,6 @@
 class WaitingsController < ApplicationController
   before_action :set_waiting, only: %i[ show edit update destroy ]
+  before_action :ensure_admin, only: %i[ index show edit update destroy ]
 
   # GET /waitings or /waitings.json
   def index
@@ -25,7 +26,7 @@ class WaitingsController < ApplicationController
 
     respond_to do |format|
       if @waiting.save
-        format.html { redirect_to @waiting, notice: "Waiting was successfully created." }
+        format.html { redirect_to root_path, notice: "You successfully join wait list." }
         format.json { render :show, status: :created, location: @waiting }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -66,5 +67,11 @@ class WaitingsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def waiting_params
       params.require(:waiting).permit(:email, :name, :discovered)
+    end
+
+    def ensure_admin
+      unless current_user&.nickname == 'admin'
+        redirect_to root_path, alert: "Access denied."
+      end
     end
 end

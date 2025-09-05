@@ -1,3 +1,6 @@
+
+<img width="500" alt="c5b5d917-0699-416a-ac02-a8dccb829f54" src="https://github.com/user-attachments/assets/ad4093c7-3ab0-4769-a76f-9632dde04191" />
+
 # 🏢 Repo Plaza
 
 **Repo Plaza** è un sistema di monitoraggio delle dipendenze per progetti software, costruito con Ruby on Rails. L'applicazione permette agli sviluppatori di tracciare e monitorare le repository GitHub che utilizzano come dipendenze nei loro progetti, ricevendo notifiche su aggiornamenti, patch di sicurezza e breaking changes per mantenere i propri progetti sempre sicuri e aggiornati.

@@ -95,17 +95,10 @@ infatti io ho:
 web: bin/rails server
 css: bin/rails tailwindcss:watch
 
-_27 agosto 25_
-SSO github
-
-_28 agosto 25_
-Email 
-
-_29 agosto 25_
-personalizzare le pagine di login
-rails generate devise:views
 
 
+_3 SETT 25_
+devo personalizzare le viste di devise
 
 
 TO DO 
@@ -115,6 +108,8 @@ ruby# Authentication
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
+
+email
 
 # GitHub API
 gem 'octokit'

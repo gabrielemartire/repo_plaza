@@ -4,7 +4,7 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories or /repositories.json
   def index
-    @repositories = Repository.all
+    @repositories = current_user.repositories
   end
 
   # GET /repositories/1 or /repositories/1.json
@@ -23,6 +23,7 @@ class RepositoriesController < ApplicationController
   # POST /repositories or /repositories.json
   def create
     @repository = Repository.new(repository_params)
+    @repository.user << current_user
 
     respond_to do |format|
       if @repository.save

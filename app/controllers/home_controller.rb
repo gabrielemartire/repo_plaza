@@ -1,4 +1,14 @@
+require 'ostruct'
+
 class HomeController < ApplicationController
-  def index
+  def landing
+    if user_signed_in?
+      @user_data = current_user
+      @repository = current_user.repositories
+
+      redirect_to repositories_path
+    else
+      render :landing
+    end
   end
 end

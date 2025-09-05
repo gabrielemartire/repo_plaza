@@ -1,39 +1,76 @@
-<% content_for :title, "Repositories" %>
+<%# app/views/repositories/index.html.erb %>
 
-<div class="w-full max-w-5xl mx-auto py-8 px-4">
-  <% if notice.present? %>
-    <p id="notice" class="py-2 px-4 bg-green-50 border border-green-200 mb-6 text-green-700 font-medium rounded-lg shadow-sm">
-      <%= notice %>
-    </p>
-  <% end %>
 
-  <!-- Header -->
-  <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-    <h1 class="font-bold text-3xl text-slate-800">Repositories</h1>
-    <div class="flex flex-wrap gap-3">
-      <%= link_to "Home", root_path,
-        class: "rounded-lg px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-sm transition" %>
-      <%= link_to "New repository", new_repository_path,
-        class: "rounded-lg px-4 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium shadow-sm transition" %>
-    </div>
-  </div>
-
-  <!-- Repository List -->
-  <div id="repositories" class="divide-y divide-slate-200">
-    <% if @repositories.any? %>
-      <% @repositories.each do |repository| %>
-        <div>
-          <%= link_to repository_path(repository), class: "block rounded-lg bg-white hover:bg-slate-50 transition" do %>
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center p-6 gap-4">
-              <div class="flex-1 w-full">
-                <%= render repository %>
+<div style="width: 80%; background: #f0f0f0; padding: 30px;">
+  
+  <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Le mie Repository</h1>
+  
+  <table style="width: 100%; margin: 0 auto;">
+    <% @repositories.each_slice(3) do |repo_row| %>
+      <tr>
+        <% repo_row.each do |repo| %>
+          <td style="width: 33%; padding: 15px; vertical-align: top;">
+            
+            <div style="background: white; padding: 20px; border: 1px solid #ddd; margin-bottom: 20px;">
+              
+              <h3 style="color: #333; margin-bottom: 10px;">
+                <i class="fa-brands fa-github"></i> <%= repo[:title] %>
+              </h3>
+              
+              <% if repo[:archived] %>
+                <span style="background: orange; color: white; padding: 3px 8px; font-size: 12px;">ARCHIVIATO</span>
+              <% else %>
+                <span style="background: green; color: white; padding: 3px 8px; font-size: 12px;">ATTIVO</span>
+              <% end %>
+              
+              <p style="color: #666; margin: 15px 0; font-size: 14px;">
+                <%= truncate(repo[:description], length: 80) %>
+              </p>
+              
+              <div style="font-size: 12px; color: #999; margin-bottom: 15px;">
+                Ultimo commit: <%= repo[:last_commit_at]%> fa<br>
+                Creato: <%= repo[:created_at].strftime("%b %Y") %>
               </div>
+              
+              <div style="text-align: center;">
+                <button style="margin-right: 10px; background: none; border: none; font-size: 16px; color: #ccc;">
+                  <i class="fa-regular fa-heart"></i>
+                </button>
+                <button style="margin-right: 10px; background: none; border: none; font-size: 16px; color: #ccc;">
+                  <i class="fa-regular fa-bookmark"></i>
+                </button>
+                <a href="<%= repo[:url] %>" target="_blank" style="margin-right: 10px; color: #ccc;">
+                  <i class="fa-solid fa-external-link"></i>
+                </a>
+                
+                <br><br>
+                
+                <%= link_to repository_path(repo[:id]), 
+                    style: "background: black; color: white; padding: 8px 15px; text-decoration: none;" do %>
+                  Show Repo
+                <% end %>
+              </div>
+              
             </div>
-          <% end %>
-        </div>
-      <% end %>
-    <% else %>
-      <p class="text-center text-slate-500 my-12">No repositories found.</p>
+            
+          </td>
+        <% end %>
+        
+        <!-- Riempi celle vuote se l'ultima riga ha meno di 3 elementi -->
+        <% (3 - repo_row.length).times do %>
+          <td style="width: 33%; padding: 15px;"></td>
+        <% end %>
+      </tr>
     <% end %>
-  </div>
+  </table>
+  
+  <% if @repositories.empty? %>
+    <div style="text-align: center; background: white; padding: 40px; border: 1px solid #ddd;">
+      <h3>Nessuna repository trovata</h3>
+      <p>Aggiungi la tua prima repository</p>
+      <%= link_to "Aggiungi Repository", new_repository_path, 
+            style: "display: inline-block; margin-top: 15px; background: black; color: white; padding: 10px 20px; text-decoration: none;" %>
+    </div>
+  <% end %>
+  
 </div>

@@ -65,6 +65,6 @@ class WaitingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def waiting_params
-      params.require(:waiting).permit(:user_id, :status, :email, :name, :discovered)
+      params.require(:waiting).permit(:email, :name, :discovered)
     end
 end

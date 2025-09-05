@@ -17,18 +17,8 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :uid %>
-    <%= form.text_field :uid, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:uid].none?, "border-red-400 focus:outline-red-600": user.errors[:uid].any?}] %>
-  </div>
-
-  <div class="my-5">
     <%= form.label :nickname %>
     <%= form.text_field :nickname, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:nickname].none?, "border-red-400 focus:outline-red-600": user.errors[:nickname].any?}] %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:name].none?, "border-red-400 focus:outline-red-600": user.errors[:name].any?}] %>
   </div>
 
   <div class="my-5">
@@ -37,13 +27,13 @@
   </div>
 
   <div class="my-5">
-    <%= form.label :token %>
-    <%= form.text_field :token, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:token].none?, "border-red-400 focus:outline-red-600": user.errors[:token].any?}] %>
+    <%= form.label :password %>
+    <%= form.text_field :password, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:token].none?, "border-red-400 focus:outline-red-600": user.errors[:token].any?}] %>
   </div>
 
   <div class="my-5">
-    <%= form.label :token_expires_at %>
-    <%= form.datetime_field :token_expires_at, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:token_expires_at].none?, "border-red-400 focus:outline-red-600": user.errors[:token_expires_at].any?}] %>
+    <%= form.label :password_confirmation %>
+    <%= form.text_field :password_confirmation, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:token].none?, "border-red-400 focus:outline-red-600": user.errors[:token].any?}] %>
   </div>
 
   <div class="inline">

@@ -32,7 +32,7 @@
 2. **Aggiungi Dipendenze**: Specifica quali repository vuoi monitorare (es. rails/rails, facebook/react).
 3. **Ricevi Notifiche**: Repo Plaza ti avvisa quando una repository di tuo interesse non riceve piu aggiornamenti.
 
-## 🔧 Tecnologie Utilizzate
+## Tecnologie Utilizzate
 
 ### Backend
 - **Ruby on Rails** - Framework web principale
@@ -42,14 +42,14 @@
 ### Frontend
 - **Tailwind CSS** - Styling moderno e responsive
 
-## 📋 Prerequisiti
+## Prerequisiti
 
 - **Ruby** 3.0+
 - **Rails** 7.0+
 - **PostgreSQL** 13+
 - **Docker** (per sviluppo locale)
 
-## 🚀 Installazione
+## Installazione
 
 ### 1. Clona il progetto
 ```bash
@@ -94,23 +94,24 @@ Vai su `http://localhost:3000` per accedere all'app.
 
 ## 🤝 Contribuire
 
-1. Fork del progetto
-2. Branch feature (`git checkout -b feature/MonitoringNpm`)
-3. Commit (`git commit -m 'Add npm package monitoring'`)
-4. Push (`git push origin feature/MonitoringNpm`)
-5. Pull Request
+1. _[ALPHA] Feedback & Issue Tracker - Alpha Phase https://github.com/gabrielemartire/repo_plaza/issues/6_
+2. Fork del progetto
+3. Branch feature (`git checkout -b feature/MonitoringNpm`)
+4. Commit (`git commit -m 'Add npm package monitoring'`)
+5. Push (`git push origin feature/MonitoringNpm`)
+6. Pull Request
 
-## 📄 Licenza
+## Licenza
 
 Progetto sotto licenza MIT - vedi `LICENSE` per dettagli.
 
-## 👨‍💻 Autore
+## Autore
 
 **Gabriele Martire**
 - GitHub: [@gabrielemartire](https://github.com/gabrielemartire)
 - Portfolio: [gabrielemartire.github.io](https://gabrielemartire.github.io/)
 
-## 🙏 Ringraziamenti
+## Ringraziamenti
 
 - Open source maintainers che rendono possibile questo ecosistema
 

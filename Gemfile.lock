@@ -113,6 +113,8 @@ GEM
       cgi (>= 0.3.3)
     error_highlight (0.7.0)
     erubi (1.13.1)
+    faker (3.5.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -348,6 +350,7 @@ DEPENDENCIES
   debug
   devise
   error_highlight (>= 0.4.0)
+  faker
   importmap-rails
   jbuilder
   pg (~> 1.1)

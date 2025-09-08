@@ -71,7 +71,7 @@ class UsersController < ApplicationController
     end
 
     def ensure_admin
-      unless current_user&.nickname == 'admin'
+      unless current_user.admin?
         redirect_to root_path, alert: "Accesso negato. Solo gli amministratori possono accedere a questa pagina."
       end
     end

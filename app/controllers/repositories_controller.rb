@@ -4,7 +4,11 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories or /repositories.json
   def index
-    @repositories = current_user.repositories
+    if current_user.admin?
+      @repositories = Repository.all
+    else
+      @repositories = current_user.repositories
+    end
   end
 
   # GET /repositories/1 or /repositories/1.json
